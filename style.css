@@ -1,0 +1,189 @@
+html {
+  min-height: 2000px;
+}
+
+.jumbotron {
+  background-color: #90ee90;
+  padding-top: 6rem;
+}
+
+hr {
+  width: 200px;
+  border-top: 3px solid green;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+#gallery {
+  background-color: lightgreen;
+}
+
+#gallery .container {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template:
+    "1fr 1fr 1fr 1fr 1fr" 33.33vh
+    "1fr 1fr 1fr 1fr 1fr" 33.33vh
+    "1fr 1fr 1fr 1fr 1fr" 33.33vh
+    "1fr 1fr 1fr 1fr 1fr" 33.33vh;
+  /* grid-gap: 3px; */
+}
+
+#gallery .container .box {
+  position: relative;
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+#gallery .container .box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#gallery .container .overlay img {
+  max-height: 100%;
+  opacity: 1;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  border: 10px solid white;
+}
+
+#gallery .container .box:hover .grid-overlay {
+  transform: translateY(0%);
+}
+
+#gallery .container .box .grid-overlay {
+  background: rgba(78, 84, 229, 0.91);
+  height: 100%;
+  grid-column: -1;
+  grid-row: -1;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  transform: translateY(101%);
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-overlay a {
+  background: none;
+  outline: none;
+  font-weight: 100;
+  letter-spacing: 2px;
+  border: 1px solid white;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.grid-overlay a:hover {
+  transition: all 0.3s ease-in-out;
+  background: white;
+  color: #d1a39e;
+  transform: scale(1.05);
+}
+
+.overlay {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: fixed;
+  background: rgba(0, 0, 0, 0);
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  transition: 0.8s;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.overlay:target {
+  width: auto;
+  height: auto;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay .close {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  bottom: 5px;
+  outline: 0;
+  color: #ffffff;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: -30px;
+  text-decoration: none;
+}
+
+#gallery .container .box.a,
+#gallery .container .box.k {
+  grid-column: span 2;
+}
+
+#gallery .container .box.e,
+#gallery .container .box.c {
+  grid-row: span 2;
+}
+
+/* .bi {
+  position: absolute;
+} */
+
+@media (max-width: 991px) {
+  #gallery .container {
+    grid-template:
+      "1fr 1fr 1fr" 250px
+      "1fr 1fr 1fr" 250px
+      "1fr 1fr 1fr" 250px
+      "1fr 1fr 1fr" 250px
+      "1fr 1fr 1fr" 250px
+      "1fr 1fr 1fr" 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  #gallery .container {
+    grid-template:
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px
+      "1fr 1fr" 200px;
+  }
+  #gallery .container .box.i {
+    grid-row: span 2;
+  }
+
+  #gallery .container .overlay img {
+    max-height: 100%;
+    max-width: 75%;
+    margin-left: -10px;
+    opacity: 1;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    border: 10px solid white;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  padding-top: 5rem;
+}
+
+.next {
+}
